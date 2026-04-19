@@ -1,7 +1,7 @@
 # Greenhouse-Gambit
 This is an escape room made by David in order to practice Python.
 
-Ever feel bored of the escape rooms you have to do in class or the ones that have a really good story, but you can only play it once? Introducing Greenhouse Gambit... an escape room based on randomization and a story. Please note this only runs on Windows (screenshot of demo is Devlog #15 for flavortown).
+Ever feel bored of the escape rooms you have to do in class or the ones that have a really good story, but you can only play it once? Introducing Greenhouse Gambit... an escape room based on randomization and a story. Please note this only runs on Windows (as per my knowledge, atleast; screenshot of demo is Devlog #15 for Flavortown).
 
 How To Play:
 Press 1 to start game
