@@ -4,14 +4,15 @@ from greenhousegambit_endings import endings_sorter
 
 def randomize_finallock(filename):
     possible_locks = []
-    # Trying to open file
+    # Trying to open file  
     try:
         with open(filename, 'r') as file:
            # If the file is found
            possible_locks = [line.strip().lower() for line in file.readlines()]
     except FileNotFoundError:
-        # If file isn't found
+        # If file isn't found, backup array
         print("The file is not found.")
+        possible_locks = ["hackclub", "breakout", "dungeons", "chambers", "instance", "cabinets", "campfire", "instruct", "absolute", "puzzling"]
     # Randomizes a password
     chosen = random.randint(0, 9)
     password = possible_locks[chosen]

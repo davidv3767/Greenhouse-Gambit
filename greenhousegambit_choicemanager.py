@@ -45,7 +45,7 @@ def playerChoices():
                     new_order = random.randint(0, 7)
                 keys_order.append(new_order)
         # Choosing a puzzle to print
-        new_puzzle = puzzle_finder(puzzles_done, 8, keys_content, keys_order)
+        new_puzzle = puzzle_finder(puzzles_done, 12, keys_content, keys_order)
         puzzles_done.append(new_puzzle)
         # If all puzzles are done, do this (else continue)
         if (len(puzzles_done) >= 8):

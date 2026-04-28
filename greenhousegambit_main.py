@@ -22,9 +22,9 @@ def start_menu():
 def introduction():
     print("Yeah, maybe the average escape room you have to do in class is easy.")
     print("Like it wasn't fun at all, just an assignment you had to do...")
-    print("Well, you regret that because your teachers decided to keep you in a FUN escape room right before summer starts.")
+    print("Well, you regret voicing that out loud (long story, don't ask) that because your teachers decided to keep you in an actually FUN escape room right before summer starts.")
     print("You're now stuck in a room of the school nobody knows, but the planners of this room.")
-    print("You must use your cunningness & skills to unlock the code before the last bell rings...")
+    print("You must use your cunningness, luckiness & skills to decipher the code before the last bell rings...")
     print("Have a great time in this awesome escape room!")
     print("")
     begin_game()
@@ -33,6 +33,7 @@ def introduction():
 def credits():
     print("This was made by David for Flavortown.")
     print("Thanks to my colleagues (a.k.a. rubber duckies for decoding), Robert & Richard Duckington.")
+    print("Finally, thanks to my family & those who have inspired me to code for the past year.")
     print("")
     start_menu()
 

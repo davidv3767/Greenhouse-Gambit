@@ -4,10 +4,12 @@ import random
 # This function help with the randomization of puzzles
 def puzzle_finder(puzzles_done, num_puzzles, content, order):
     puzzle_num = random.randint(1, num_puzzles)
-    content_num = order.index(puzzle_num - 1)
+    content_num = order.index(len(puzzles_done))
     puzzle_key = content[content_num]
     while (puzzle_num in puzzles_done):
         puzzle_num = random.randint(1, num_puzzles)
+        content_num = order.index(puzzle_num - 1)
+        puzzle_key = content[content_num]
     puzzle_sorter(puzzle_num, puzzle_key)
     return puzzle_num
 
@@ -27,8 +29,16 @@ def puzzle_sorter(puzzle_num, puzzle_key):
         puzzle6(puzzle_key)
     elif puzzle_num == 7:
         puzzle7(puzzle_key)
-    else:
+    elif puzzle_num == 8:
         puzzle8(puzzle_key)
+    elif puzzle_num == 9:
+        puzzle9(puzzle_key)    
+    elif puzzle_num == 10:
+        puzzle10(puzzle_key)
+    elif puzzle_num == 11:
+        puzzle11(puzzle_key)
+    elif puzzle_num == 12:
+        puzzle12(puzzle_key)
 
 # This is puzzle #1 -- a 4-digit pin guessing game
 def puzzle1(puzzle_key):
@@ -69,7 +79,7 @@ def puzzle1(puzzle_key):
     print("Good luck!")
     # Ask for user input & give feedback
     while (True):
-        guess = input("What is your guess? ")
+        guess = int(input("What is your guess? "))
         guessCorrect = guess[0] == numbers[0] and guess[1] == numbers[1] and guess[2] == numbers[2] and guess[3] == numbers[3]
         correct_position = 0
         for i in range(4):
@@ -145,7 +155,7 @@ def puzzle3(puzzle_key):
 # This is puzzle #4 -- a mix of math, art, and logic
 def puzzle4(puzzle_key):
     # Uses arrays to store different questions
-    questions = ["What color can be combined to purple to make blue?", "What color can be combined to red to make yellow?", "What color is made from combining blue with itself?", "What color combined to itself makes green?", "What is yellow + blue?"]
+    questions = ["What color can be combined to purple to make blue?", "What color can be combined to red to make orange?", "What color is made from combining blue with itself?", "What color combined to itself makes green?", "What is yellow + blue?"]
     answers = ["green", "yellow", "orange", "red", "green"]
     # Randomizes for a specific question/answer pair
     chosen = random.randint(0, 4)
@@ -264,4 +274,79 @@ def puzzle8(puzzle_key):
         print("")
     print("Nice job with that hard puzzle!")
     print("The letter unlocked by solving this is " + puzzle_key + ".")
+
+# This is puzzle #9 -- you thought school could escape you early?
+def puzzle9(puzzle_key):
+    # Store school questions/answers in arrays
+    school_questions = ["What's 47 + 52?", "x = (4 * 2) ** 3", "The box of toys _(is/are)_ there."]
+    school_answers = ["99", "512", "is"]
+    # Randomize question/answer pair
+    chosen_pair = random.randint(0, 2)
+    # Print instructions
+    print("It's the last day of school, of course everyone wouldn't be doing much...")
+    print("But you, yes you, still have review to do only if you want to escape...")
+    print("")
+    print("Your school question is...")
+    guess = input(school_questions[chosen_pair])
+    print("")
+    while (guess != school_answers[chosen_pair]):
+        print("Try again!")
+        guess = input(school_questions[chosen_pair])
+    print("Kudos to you! You've unlocked the letter " + puzzle_key + ".")
+
+# This is puzzle #10 -- the newspaper riddles
+def puzzle10(puzzle_key):
+    # Prints instructions
+    print("You know those logic puzzles in the newspaper every week?")
+    print("To unlock the letter, you've got to do one!")
+    print("")
+    # No randomization, sadly:
+    guess = input("There were less than four kids born on the same day, hospital, & room. There were no twins. How were they related, if they were? ")
+    print("")
+    # Guessing mechanic
+    while (guess != "triplets" and guess != "They were triplets."):
+        print("Try again! Try using one lowercase word or a simple sentence.")
+        guess = input("There were less than four kids born on the same day, hospital, & room. There were no twins. How were they related, if they were? ")
+        print("")
+    print("Congrats! The letter is " + puzzle_key + ".")
+
+# This is puzzle #11 -- more patterns!
+def puzzle11(puzzle_key):
+    # Store patterns/missing element in arrays
+    patterns = ["⭕ ⭕ ⭕🔺 ⭕ ⭕ ⭕ ?", "🔺 ⭕ 🔺 🔺 ⭕ 🔺 🔺 🔺 ⭕ 🔺 🔺 🔺 🔺 ?", "🟥 🟥 🟥 ⭕ ⭕ ⭕ 🔺 🔺 🔺 🟥 🟥 ⭕ ⭕ 🔺 🔺 🟥 ⭕ ?"]
+    answers = ["triangle", "circle", "triangle"]
+    # Randomize question/answer pair
+    chosen_pair = random.randint(0, 2)
+    # Prints instructions
+    print("Patterns, patterns, patterns, they are awesome!")
+    print("There is a puzzle on colors, but now we're doing shapes!")
+    print("")
+    print("Your pattern is:")
+    print(patterns[chosen_pair])
+    print("")
+    # Guessing mechanic
+    guess = input("Type your answer (circle, square, triangle): ")
+    while (guess != answers[chosen_pair]):
+        print("Try again! Try using a word, NOT the emoji.")
+        guess = input("Type your answer (circle, square, triangle): ")
+        print("")
+    print("Congrats! The letter is " + puzzle_key + ".")
+
+# This is puzzle #12 -- one that finally fits the THEME (greenhouse)
+def puzzle12(puzzle_key):
+    # Stores DNA sequences/mRNA transcription in arrays
+    sequences = ["ATCGCTAGC", "GCTAGCTAC", "TAGCCTGAA"]
+    transcriptions = ["UAGCGAUCG", "CGAUCGAUG", "AUCGGACUU"]
+    # Randomize question/answer pair
+    chosen_pair = random.randint(0, 2)
+    print("This is a greenhouse; let's do some DNA testing!")
+    print("In all capital letters, transcribe the following:")
+    print(sequences[chosen_pair])
+    # Guessing mechanic
+    guess = input("Type your answer (all capitals, only A U G C): ")
+    while (guess != transcriptions[chosen_pair]):
+        print("Try again! Try using only A U G C.")
+        guess = input("Type your answer (all capitals, only A U G C): ")
+        print("")
+    print("Congrats! The letter unlocked by your transcribing is " + puzzle_key + ".")
     
