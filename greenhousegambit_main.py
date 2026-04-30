@@ -33,7 +33,7 @@ def introduction():
 def credits():
     print("This was made by David for Flavortown.")
     print("Thanks to my colleagues (a.k.a. rubber duckies for decoding), Robert & Richard Duckington.")
-    print("Finally, thanks to my family & those who have inspired me to code for the past year.")
+    print("Last but not the least, thanks to my family & those who have inspired me to code for the past year.")
     print("")
     start_menu()
 
